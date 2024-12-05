@@ -11,12 +11,12 @@ const store_data= async(id, data) => {
     }
 // console.log(dataset);
 
-    const predictCollection = db.collection('prediction');
+    const predictCollection = db.collection('predictions');
     return predictCollection.doc(id).set(dataset); 
 }
 
 const getResult = async(req,res) => {
-    const predictCollection = db.collection('prediction');
+    const predictCollection = db.collection('predictions');
     const snapshot = await predictCollection.get();
     const data = snapshot.docs.map(doc => doc.data());
 
